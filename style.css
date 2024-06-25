@@ -1,236 +1,244 @@
 * {
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-  font-size: 62.5%;
+  --brand-primary: hsl(195, 91%, 25%);
+  --brand-secondary: hsl(195, 46%, 40%);
+  --title-primary: hsl(240, 6%, 13%);
+  --text-primary: hsl(240, 5%, 7%);
 
-  --color-base-white: hsl(0, 0%, 100%);
-  --color-base-black: hsl(240, 6%, 13%);
-  --color-base-blue: hsl(195, 91%, 25%);
-  --color-base-light-blue: hsl(195, 46%, 40%);
-  --color-base-gray: hsla(0, 0%, 100%, 0.2);
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
 }
 
 html,
-body,
 input {
-  font-family: "Mulish", sans-serif;
+  font: 400 var(--text-base)/160% "Mulish", sans-serif;
+  color: var(--text-primary);
 }
 
-body {
-  font-size: 1.6rem;
-  background-color: var(--color-base-white);
-  color: var(--color-base-black);
+h1,
+h2,
+h3 {
+  font-size: 1.5rem;
+  color: var(--title-primary);
 }
 
-#app {
-  display: grid;
-  grid-template-rows: max-content 1fr max-content;
-  height: 100vh;
+h3 {
+  font-size: 1.125rem;
+  line-height: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+  transition: all 300ms;
+}
+
+img:hover {
+  scale: 1.1;
+}
+
+.text-sm {
+  font-size: var(--text-sm);
 }
 
 .container {
-  width: 100%;
-  margin: 0 auto;
+  padding-inline: 1.25rem;
+  max-width: calc(24rem + (1.25rem * 2));
+  margin-inline: auto;
 }
 
 header {
-  padding: 1.6rem 2.8rem;
+  background-color: var(--brand-primary);
+  padding: 0.8rem 1.75rem;
+}
+
+header .container {
+  max-width: 23.375rem;
+  margin-inline: auto;
+
   display: flex;
   align-items: center;
-  gap: 2.6rem;
-  font-weight: 600;
-  background: var(--color-base-blue);
-  width: 100%;
+  justify-content: center;
+  gap: 1.625rem;
 }
 
-header form {
-  flex: 1;
+header a {
+  line-height: 0;
 }
 
-.input-wrapper label {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-}
-
-.input-wrapper input {
-  width: 100%;
-  padding: 1.4rem;
-
-  background-color: var(--color-base-gray);
-  color: var(--color-base-white);
-  border: 0;
-  border-radius: 0.4rem;
-
-  font-size: 1.6rem;
-  font-weight: 600;
-}
-
-.input-wrapper input::placeholder {
-  color: var(--color-base-white);
-}
-
-.avatar {
-  width: 4.2rem;
-  height: 4.2rem;
-
-  object-fit: cover;
-
+header img:last-child {
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
 }
 
-main {
-  overflow-y: scroll;
-  background-color: var(--color-base-white);
+header form input {
+  background: rgb(255 255 255 / 0.2);
+  border: none;
+  padding: 0.75rem 0.875rem;
+  border-radius: 0.25rem;
+
+  font-weight: 600;
+  line-height: 100%;
+
+  color: white;
 }
 
-main .imagem1 {
-  width: 100%;
-  max-height: 403px;
-
-  aspect-ratio: 10/5;
-  object-fit: cover;
-
-  margin-bottom: 3.2rem;
+header form input::placeholder {
+  color: white;
 }
 
-.img {
-  width: min(200rem, 100%);
-}
+/* main */
 
-.content {
-  width: min(200rem, 100%);
-}
-
-section {
-  padding: 0 2.2rem;
-}
-
-.content h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 160%;
-}
-
-.div {
-  margin: 1rem auto 3.1rem;
-}
-
-.action {
+main h1 {
   margin-top: 1rem;
-  display: flex;
-  gap: 1.2rem;
 }
 
-.action img {
-  padding: 1rem;
-  background-color: var(--color-base-blue);
-  border-radius: 999px;
-  object-fit: cover;
+main .button {
+  margin-top: 0.5rem;
 }
 
-.content p {
-  color: var(--color-base-black);
-  line-height: 160%;
+main p {
+  margin-top: 1rem;
+  text-align: justify;
 }
 
-.content1 {
-  padding: 0 2.2rem 3.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 3.2rem;
+button {
+  all: unset;
+  transition: all 300ms;
+  cursor: pointer;
 }
 
-.content1 h2 {
-  margin-top: 3.4rem;
+button:hover {
+  transform: scale(1.1) rotate(10deg);
 }
 
-.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* aside */
+
+aside {
+  margin-top: 2rem;
 }
 
-.item img {
-  width: 16rem;
-  height: 10rem;
+aside section {
+  margin-top: 1rem;
+  display: grid;
+  gap: 2rem;
 }
 
-.details {
-  padding: 1rem;
-  background-color: var(--color-base-white);
+section article {
+  display: grid;
+
+  grid-template-columns: 9.375rem 15rem;
+  gap: 1rem;
 }
 
-.details h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
+section article p {
+  margin-top: 0.75rem;
 }
+
+article img {
+  border-radius: 5px;
+}
+
+/* footer */
 
 footer {
-  margin-top: auto;
-  background: var(--color-base-light-blue);
-}
-
-footer p {
+  background-color: var(--brand-secondary);
+  color: white;
   text-align: center;
-  padding: 2.6rem 1.6rem;
-  font-weight: 600;
+  padding-block: 1.5rem;
+
+  margin-top: 2.5rem;
 }
 
-@media (min-width: 1000px) {
-  main .container {
-    display: flex;
-    margin-top: 4.4rem;
+@media (width > 80rem) {
+  img {
+    border-radius: 5px;
   }
 
-  .img {
-    display: flex;
-    justify-content: center;
+  #app {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "main aside"
+      "footer footer";
+
+    gap: 2.5rem 2rem;
   }
 
-  .div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  header .container,
+  .container {
+    max-width: initial;
+    margin: initial;
+    padding: initial;
   }
 
-  .action {
-    margin-top: 0;
+  header {
+    grid-area: header;
   }
 
-  .content {
-    padding: 0 0 3.9rem 2rem;
+  header .container {
+    max-width: 76rem;
+    margin-inline: auto;
   }
 
-  .content1 {
-    gap: 1rem;
+  header form {
+    flex: 1;
   }
 
-  .content1 h2 {
-    margin-top: 0;
+  header form input {
+    width: 100%;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  main.container {
+    max-width: 50rem;
+    margin-left: auto;
+  }
+
+  aside {
+    grid-area: aside;
+  }
+
+  aside .container {
+    max-width: 24rem;
+  }
+
+  footer {
+    grid-area: footer;
   }
 }
 
-.item1 {
-  --delay: 0.4s;
-  animation: appear 0.4s var(--delay) backwards;
+header {
+  animation: fromTop 600ms 100ms backwards;
 }
 
-@keyframes appear {
-  0% {
+main,
+aside {
+  animation: fromBottom 800ms 100ms backwards;
+}
+
+@keyframes fromTop {
+  from {
     opacity: 0;
-    transform: scale(0.7);
+    transform: translateY(-100%);
   }
+}
 
-  50% {
-    transform: scale(1.2);
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
   }
 }
